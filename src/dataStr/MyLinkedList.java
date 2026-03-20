@@ -22,9 +22,29 @@ public class MyLinkedList {
 		}
 		catch(OutOfMemoryError error) {
 			return true;
+		}	
+	}
+	public void add(char element) throws Exception{
+		if(isFull()){
+			throw new Exception("Saraksts ir pilns");
 		}
-	
+		// tiks pievienots pirmais elements
+		if(howManyElements==0) {
+			MyNode newNode = new MyNode(element);
+			firstNode = newNode;
+			lastNode = newNode;
+			howManyElements++;
 		}
+		// ja tiek pievienos 1 2 3 elements
+		//TODO ja velas var optimizet kodu
+		else {
+			MyNode newNode = new MyNode(element);
+			newNode.setPreviousNode(lastNode);
+			lastNode.setNextNode(newNode);
+			lastNode= newNode;
+			howManyElements++;
+		}
+	}
 	
 	
 }
