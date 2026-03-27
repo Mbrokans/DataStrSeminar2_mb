@@ -33,6 +33,8 @@ public class MainService {
 			symbols.print();
 			System.out.println("Izgūt elementu no 2 pozīcijas");
 			System.out.println("2.pozīcijas element ir " + symbols.get(2));
+			System.out.println("Atarst K elementa poziciju");
+			System.out.println(symbols.search('K'));
 			
 			
 		}

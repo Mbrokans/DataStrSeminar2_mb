@@ -137,6 +137,21 @@ public class MyLinkedList {
 		return currentNode.getElement();
 		
 	}
+	public int search(char element) throws Exception{
+		if (isEmpty()) {
+			throw (new Exception("Saraksts ir tukšs, tāpēc nevar izgūt elementus"));
+		}
+		int foundPosition = 0;
+		MyNode currneNode=firstNode;
+		while(currneNode!=null) {
+			if(currneNode.getElement()==element) {
+				return foundPosition;
+			}
+			foundPosition++;
+			currneNode=currneNode.getNextNode();
+		}
+		throw new Exception("Mekletais elements neeksiste saraksta");
+	}
 	
 	public void print()throws Exception{
 		if(isEmpty()) {
