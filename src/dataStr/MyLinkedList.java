@@ -1,6 +1,6 @@
 package dataStr;
 
-public class MyLinkedList {
+public class MyLinkedList<Ttype> {
 	private MyNode firstNode = null; // get in set funkcijas netaisa jo lietotajam nav jazina first and last
 	private MyNode lastNode = null;
 	private int howManyElements =0; // ka ari seit netaisam jo nelaujam lietotajam mainit elementu skaitu
@@ -24,16 +24,13 @@ public class MyLinkedList {
 			return true;
 		}	
 	}
-	public void add(char element) throws Exception{
+	public void add(Ttype element) throws Exception{
 		if(isFull()){
 			throw new Exception("Saraksts ir pilns");
 		}
 		// tiks pievienots pirmais elements
-		if(howManyElements==0) {
-			MyNode newNode = new MyNode(element);
-			firstNode = newNode;
-			lastNode = newNode;
-			howManyElements++;
+		if(element==null) {
+			throw new Exception("Ievades elements nevar but null");
 		}
 		// ja tiek pievienos 1 2 3 elements
 		//TODO ja velas var optimizet kodu
@@ -45,7 +42,13 @@ public class MyLinkedList {
 			howManyElements++;
 		}
 	}
-	public void add(char element, int position) throws Exception{
+	public void add(Ttype element, int position) throws Exception{
+		if(element==null) {
+			throw new Exception("Ievades elements nevar but null");
+		}
+		if(isFull()){
+			throw new Exception("Saraksts ir pilns");
+		}
 		if(position<0) {
 			throw new Exception("Pozicija ir mazaka par 0");
 		}
@@ -116,7 +119,7 @@ public class MyLinkedList {
 		}
 		
 	}
-	public char get(int position) throws Exception{
+	public Ttype get(int position) throws Exception{
 		if (isEmpty()) {
 			throw (new Exception("Saraksts ir tukšs, tāpēc nevar izgūt elementus"));
 		}
@@ -134,17 +137,20 @@ public class MyLinkedList {
 			currentNode = currentNode.getNextNode();
 		}
 		
-		return currentNode.getElement();
+		return (Ttype) currentNode.getElement();
 		
 	}
-	public int search(char element) throws Exception{
+	public int search(Ttype element) throws Exception{
+		if(element==null) {
+			throw new Exception("Ievades elements nevar but null");
+		}
 		if (isEmpty()) {
 			throw (new Exception("Saraksts ir tukšs, tāpēc nevar izgūt elementus"));
 		}
 		int foundPosition = 0;
 		MyNode currneNode=firstNode;
 		while(currneNode!=null) {
-			if(currneNode.getElement()==element) {
+			if(currneNode.getElement().equals(element)) {
 				return foundPosition;
 			}
 			foundPosition++;
