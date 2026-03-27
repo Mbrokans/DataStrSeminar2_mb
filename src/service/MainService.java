@@ -21,6 +21,18 @@ public class MainService {
 			System.out.println("Pievienot elementu pa vidu");
 			symbols.add('K',2); // Z B K A C W
 			symbols.print();
+			System.out.println();
+			System.out.println("Izdzesam elementu no sakuma");
+			symbols.remove(0); // B K A C W
+			symbols.print();
+			System.out.println("Izdzesam elemntu no beigam");
+			symbols.remove(4); // B K A C
+			symbols.print();
+			System.out.println("izdzesam kadu elementu pa vidu");
+			symbols.remove(1);
+			symbols.print();
+			
+			
 		}
 		catch (Exception e) {
 			System.out.println(e.getMessage());
