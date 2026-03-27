@@ -1,15 +1,15 @@
 package dataStr;
 
-public class MyNode {
+public class MyNode <Ttype> {
 	
-	private char element;
+	private Ttype element;
 	private MyNode nextNode = null;
 	private MyNode previousNode = null;
 	
 	
 	
 	
-	public char getElement() {
+	public Ttype getElement() {
 		return element;
 	}
 	public MyNode getNextNode() {
@@ -18,8 +18,13 @@ public class MyNode {
 	public MyNode getPreviousNode() {
 		return previousNode;
 	}
-	public void setElement(char element) {
+	public void setElement(Ttype element) {
+		if(element!=null) {
 		this.element = element;
+		}
+		else {
+			this.element= (Ttype)new Object();
+		}
 	}
 	
 	public void setNextNode(MyNode nextNode) {
@@ -30,7 +35,7 @@ public class MyNode {
 		this.previousNode = previousNode;
 	}
 	
-	public MyNode(char element) {
+	public MyNode(Ttype element) {
 		setElement(element);
 	}
 	public String toString() {
