@@ -1,11 +1,12 @@
 package service;
 
 import dataStr.MyLinkedList;
+import model.Student;
 
 public class MainService {
 
 	public static void main(String[] args) {
-		MyLinkedList symbols = new MyLinkedList();
+		MyLinkedList<Character> symbols = new MyLinkedList<Character>();
 		
 		try {
 			symbols.add('B');
@@ -39,6 +40,31 @@ public class MainService {
 			symbols.makeEmpty();
 			symbols.add('Q');
 			symbols.print();
+			
+		}
+		catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		System.out.println("-----------------STUDENTI------------");
+		MyLinkedList<Student> allStudents = new MyLinkedList<Student>();
+			
+		try
+		{
+			allStudents.add(new Student("Janis", "Berzins"));//Janis
+			Student s1 = new Student("Baiba", "Jauka");
+			allStudents.add(s1);//Janis Baiba
+			allStudents.add(new Student("Peteris", "Nejaukais"), 0);//Peteris Janis Baiba
+			allStudents.print();//Peteris Janis Baiba
+			allStudents.remove(0);//Pēteris izdzest
+			allStudents.print();//Janis Baiba
+			allStudents.add(new Student("Kaspars", "Kalnins"));//Janis Baiba Kaspars
+			allStudents.add(new Student("Liga", "Jautra"));//Janis Baiba Kaspars Liga
+			System.out.println(allStudents.get(3));//Liga
+			System.out.println(allStudents.search(s1));//Mekleju Baibu - 1
+			allStudents.print();
+			allStudents.makeEmpty();
+			allStudents.add(new Student("Karina", "Skirmante"));
+			allStudents.print();//Karina
 			
 		}
 		catch (Exception e) {
