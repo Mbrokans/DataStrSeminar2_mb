@@ -35,7 +35,10 @@ public class MainService {
 			System.out.println("2.pozīcijas element ir " + symbols.get(2));
 			System.out.println("Atarst K elementa poziciju");
 			System.out.println(symbols.search('K'));
-			
+			System.out.println("Iztuksos sarakstu un pec tam pievienot jaunu elemntu");
+			symbols.makeEmpty();
+			symbols.add('Q');
+			symbols.print();
 			
 		}
 		catch (Exception e) {
