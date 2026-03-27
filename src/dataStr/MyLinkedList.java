@@ -116,10 +116,26 @@ public class MyLinkedList {
 		}
 		
 	}
-	public void search(int position)throws Exception {
-		if(isEmpty()) {
-			throw (new Exception("Saraksrs ir tukss nevar sameklet elementu"));
+	public char get(int position) throws Exception{
+		if (isEmpty()) {
+			throw (new Exception("Saraksts ir tukšs, tāpēc nevar izgūt elementus"));
 		}
+
+		if (position < 0) {
+			throw (new Exception("Nevar izgūt elementu, jo pozīcija ir negatīva"));
+		}
+
+		if (position >= howManyElements) {
+			throw (new Exception("Nevar izgūt elementu, jo pozīcija ir lielāka kā elementu skaits"));
+		}
+		
+		MyNode currentNode = firstNode;
+		for(int i = 1; i <= position; i++) {
+			currentNode = currentNode.getNextNode();
+		}
+		
+		return currentNode.getElement();
+		
 	}
 	
 	public void print()throws Exception{

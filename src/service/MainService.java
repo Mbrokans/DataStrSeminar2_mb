@@ -31,6 +31,8 @@ public class MainService {
 			System.out.println("izdzesam kadu elementu pa vidu");
 			symbols.remove(1);
 			symbols.print();
+			System.out.println("Izgūt elementu no 2 pozīcijas");
+			System.out.println("2.pozīcijas element ir " + symbols.get(2));
 			
 			
 		}
