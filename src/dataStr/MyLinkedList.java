@@ -45,6 +45,41 @@ public class MyLinkedList {
 			howManyElements++;
 		}
 	}
+	public void add(char element, int position) throws Exception{
+		if(position<0) {
+			throw new Exception("Pozicija ir mazaka par 0");
+		}
+		if(position>howManyElements) {
+			throw new Exception("Pozicija ir lielaka par atlauto skaitu");
+		}
+		if(position==0) {
+			MyNode newNode = new MyNode(element);
+			firstNode.setPreviousNode(newNode);
+			newNode.setNextNode(firstNode);
+			firstNode=newNode;
+			howManyElements++;
+		}
+		else if(position==howManyElements) {
+			add(element);
+		}
+		else {
+			MyNode currentNode = firstNode;
+			for(int i=1; i<= position;i++) {
+				currentNode= currentNode.getNextNode();
+			}
+			MyNode previousNode =currentNode;
+			MyNode nextNode= currentNode.getNextNode();
+			MyNode newNode = new MyNode(element);
+			
+			newNode.setPreviousNode(previousNode);
+			previousNode.setNextNode(newNode);
+			
+			newNode.setNextNode(nextNode);
+			nextNode.setPreviousNode(newNode);
+			howManyElements++;
+		}
+	}
+	
 	public void print()throws Exception{
 		if(isEmpty()) {
 			throw new Exception("saraksts ir tukss");
